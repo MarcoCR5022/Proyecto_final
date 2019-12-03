@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Principal  {% endblock  %}
+{% block content %} 
+{% load staticfiles %}
+	<p>
+	Estamos a dia: {{damefecha}}
+	</p>
+	{% load static %}
+	<img src="{% static "Proyecto1/bloques.png" %}" alt="My image">
+{% endblock  %}
+

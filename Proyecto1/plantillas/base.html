@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>
+			{% block title  %}  {% endblock  %}
+
+		</title>
+
+	</head>
+	<body>
+		{% include "superior/barra.html" %}
+		
+		<h1 style = "background-color: darkolivegreen; color: white; text-align: center">POSICIONAMIENTO DE UN ROBOT DE 3 GRADOS DE LIBERTAD CON ACTUADORES NEUMÁTICOS
+		</h1>
+		<h3> Universidad Autónoma de Querétaro  </h3>
+		{% block content  %}  {% endblock  %}
+
+		<p style = "background-color: darkolivegreen; color: white; text-align: right"> 
+		Servidor web para acceder a los parametros del proyecto via remota, se utiliza raspberry pi, python con django para la realización de este proyecto, la etapa de control se elabora en un DSP de la marca Texas Instruments.
+		</p>
+	</body>
+</html>

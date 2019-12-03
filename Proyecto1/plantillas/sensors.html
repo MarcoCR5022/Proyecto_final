@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %} Señales del LaunchXL  {% endblock  %}
+{% block content %} 
+
+{% if lcontrol == 0  %}
+<form method="post">
+	{% csrf_token %}
+       			<button type="submit" name="plot_pos">Graficar Posición</button>
+	{% csrf_token %}
+       			<button type="submit" name="plot_err">Graficar Error</button>
+
+	           	{% csrf_token %}
+       			<button type="submit" name="run_script">Comenzar comunicación con la LaunchXL </button>
+		</form>  
+		{% elif lcontrol == 1 %}
+<form method="post">
+	           	{% csrf_token %}
+       			<button type="submit" name="update_data">actualizar datos </button>
+
+
+
+{% csrf_token %}
+       			<button type="submit" name="close_script">cerrar comunicación </button>
+		
+		</form>  
+
+{% endif %}
+
+
+     
+
+	<p>
+	Las señales obtenidas de los sensores son:
+	</p>
+<table class="egt">
+	<tr>
+		<td>Posición del motor</td>
+		<td>{{lpulsos}}</td>
+	</tr>
+	<tr>
+		<td>Setpoint del motor</td>
+		<td>{{lsetpoint}}</td>
+	</tr>
+	<tr>
+		<td>Error de la señal</td>
+		<td>{{lerror}}</td>
+	</tr>
+</table>
+<p>
+
+{% if lcontrol == 1  %}
+	Setpoint
+	<form method = "get">
+	<input type="number" name="tSetpoint" placeholder="10">
+	{% csrf_token %}
+       	<button type="submit" name="bSetpoint">actualizar datos </button>
+	</form> 
+
+
+{% endif %}
+
+</p>
+
+
+{% endblock  %}
+
